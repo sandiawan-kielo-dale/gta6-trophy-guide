@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger · GTA VI trophy guide &amp; tracker</title>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/views.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Leonida Ledger</h1>
+      <p class="tagline">GTA VI · PS5 trophy guide, platinum roadmap &amp; tracker · 55 official trophies, every guide cited</p>
+    </div>
+  </div>
+  <section id="stats" class="stats" aria-label="Progress"></section>
+</header>
+
+<nav class="toolbar" aria-label="Views and filters">
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab" data-view="checklist" role="tab">Checklist</button>
+    <button type="button" class="tab" data-view="roadmap" role="tab">Roadmap</button>
+    <button type="button" class="tab" data-view="missables" role="tab">Missables &amp; windows</button>
+  </div>
+  <input id="search" class="search" type="search" placeholder="Search trophies, missions, places…" aria-label="Search trophies">
+  <label class="field">Grade
+    <select id="grade-filter">
+      <option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="field">Show
+    <select id="earned-filter">
+      <option value="all">All</option><option value="todo">Not earned</option><option value="done">Earned</option>
+    </select>
+  </label>
+  <label class="field spoiler-field">Spoiler shield
+    <select id="spoiler-mode">
+      <option value="story">Hide story trophies</option><option value="hidden">Hide all 28 hidden</option><option value="off">Off</option>
+    </select>
+  </label>
+  <div class="io">
+    <button id="export-progress" type="button" class="btn">Export</button>
+    <label class="btn" for="import-progress">Import</label>
+    <input id="import-progress" type="file" accept="application/json,.json" hidden>
+  </div>
+</nav>
+<div id="kind-chips" class="chips" role="group" aria-label="Filter by kind"></div>
+
+<main id="view" class="view"></main>
+<p id="toast" class="toast" role="status" aria-live="polite"></p>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
