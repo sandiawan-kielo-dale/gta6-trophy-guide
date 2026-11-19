@@ -1,0 +1,6 @@
+[
+  { "file": "1-checklist-guide.jpg", "path": "/", "view": "checklist", "spoiler": "story", "selected": "Positive Mental Attitude", "note": "checklist with official names, descriptions and grades; guide with sources open; progress; kind filters", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "2-roadmap.jpg", "path": "/", "view": "roadmap", "spoiler": "story", "note": "five-stage roadmap to the platinum, trophies in chapter order, missable dot", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "3-missables-timeline.jpg", "path": "/", "view": "missables", "spoiler": "story", "note": "missable flag with window and sources, character gates, chapter timeline", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "4-spoiler-shield-story.jpg", "path": "/", "view": "checklist", "kind": "story", "spoiler": "story", "selected": "Break the Bank", "note": "spoiler shield masking unearned story trophies", "viewport": { "width": 1280, "height": 800 } }
+]
