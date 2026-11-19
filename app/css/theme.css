@@ -1,0 +1,101 @@
+/* Theme: a neon dusk palette of our own (no game artwork), system fonts only. */
+:root {
+  --bg: #120a1f;
+  --bg-2: #1b1030;
+  --panel: #21143a;
+  --panel-2: #2a1a48;
+  --line: #3b2963;
+  --text: #f4ecff;
+  --muted: #b3a3d1;
+  --pink: #ff4fa3;
+  --orange: #ff9a3c;
+  --teal: #33e0d0;
+  --violet: #9b7bff;
+  --danger: #ff5a6e;
+  --ok: #5ee08f;
+  --platinum: #cfe4ff;
+  --gold: #ffd24a;
+  --silver: #c9cfdc;
+  --bronze: #e0915a;
+  --radius: 10px;
+  --sunset: linear-gradient(90deg, var(--pink), var(--orange));
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background:
+    radial-gradient(1200px 380px at 85% -120px, rgba(255, 79, 163, 0.22), transparent 70%),
+    radial-gradient(900px 300px at 0% -80px, rgba(51, 224, 208, 0.12), transparent 70%),
+    var(--bg);
+  color: var(--text);
+  font: 14px/1.4 "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { margin: 0; letter-spacing: 0.01em; }
+
+button, select, input { font: inherit; color: inherit; }
+
+.badge {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+  color: #1a1028;
+}
+.badge.g-platinum { background: radial-gradient(circle at 30% 30%, #fff, var(--platinum) 60%, #8fb2e0); }
+.badge.g-gold { background: radial-gradient(circle at 30% 30%, #fff6c8, var(--gold) 55%, #c79a12); }
+.badge.g-silver { background: radial-gradient(circle at 30% 30%, #fff, var(--silver) 55%, #8d93a3); }
+.badge.g-bronze { background: radial-gradient(circle at 30% 30%, #ffd9bc, var(--bronze) 55%, #9c5527); }
+
+.tag, .flag, .src-count, .conf {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.tag.k-story { color: var(--pink); border-color: rgba(255, 79, 163, 0.5); }
+.tag.k-side { color: var(--violet); border-color: rgba(155, 123, 255, 0.5); }
+.tag.k-collectible { color: var(--teal); border-color: rgba(51, 224, 208, 0.5); }
+.tag.k-activity { color: var(--orange); border-color: rgba(255, 154, 60, 0.5); }
+.tag.k-crime { color: #ff7b7b; border-color: rgba(255, 123, 123, 0.5); }
+.tag.k-feat { color: var(--gold); border-color: rgba(255, 210, 74, 0.45); }
+.flag-miss { background: var(--danger); border-color: var(--danger); color: #fff; font-weight: 700; }
+.conf.c-sourced { color: var(--ok); border-color: rgba(94, 224, 143, 0.5); }
+.conf.c-partial { color: var(--gold); border-color: rgba(255, 210, 74, 0.5); }
+.conf.c-official { color: var(--orange); border-color: rgba(255, 154, 60, 0.5); }
+
+.btn {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--pink); }
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}

@@ -1,0 +1,109 @@
+/* Views: checklist + guide split, roadmap columns, missables & chapter timeline. */
+.split { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+
+.checklist { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.list-head { padding: 6px 12px; font-size: 11px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.rows { list-style: none; margin: 0; padding: 0; max-height: calc(100vh - 205px); overflow: auto; }
+.row {
+  display: grid;
+  grid-template-columns: 16px 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 12px;
+  border-bottom: 1px solid rgba(59, 41, 99, 0.6);
+  cursor: pointer;
+  line-height: 1.25;
+}
+.row:hover { background: var(--panel-2); }
+.row.selected { background: linear-gradient(90deg, rgba(255, 79, 163, 0.22), transparent); box-shadow: inset 3px 0 var(--pink); }
+.row.earned .row-name { color: var(--ok); }
+.row-text { display: flex; flex-direction: column; min-width: 0; }
+.row-name { font-weight: 650; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row-desc { color: var(--muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row.shielded .row-name { color: var(--violet); font-style: italic; }
+.row-tags { display: flex; gap: 4px; align-items: center; }
+.row-tags .tag, .row-tags .flag, .src-count, .stage-tag { font-size: 10.5px; padding: 0 6px; }
+.stage-tag { color: var(--orange); border: 1px dashed rgba(255, 154, 60, 0.45); border-radius: 999px; white-space: nowrap; }
+.earned-box { accent-color: var(--pink); width: 16px; height: 16px; margin: 0; }
+.empty { padding: 20px; color: var(--muted); }
+
+.guide {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  position: sticky;
+  top: 10px;
+}
+.guide-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.guide-head h2 { font-size: 19px; flex: 1; }
+.official { margin: 0 0 8px; padding: 8px 10px; border-radius: 8px; background: var(--bg-2); border-left: 3px solid var(--teal); }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 8px; font-size: 12px; }
+.facts div { display: flex; gap: 4px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+.facts dd:first-letter { text-transform: uppercase; }
+.miss-box, .safe-box { margin: 0 0 8px; padding: 6px 10px; border-radius: 8px; font-size: 12px; }
+.miss-box { background: rgba(255, 90, 110, 0.15); border: 1px solid var(--danger); }
+.safe-box { background: rgba(94, 224, 143, 0.08); border: 1px solid rgba(94, 224, 143, 0.35); color: var(--ok); }
+.guide-body p { margin: 0 0 6px; }
+.steps { margin: 0 0 8px; padding-left: 20px; color: var(--text); }
+.steps li::marker { color: var(--orange); font-weight: 700; }
+.sources ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.sources li { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--bg-2); }
+.host { color: var(--muted); white-space: nowrap; }
+.shield-note { color: var(--muted); }
+.guide-head h2.masked { color: var(--violet); font-style: italic; }
+.shield-card {
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px dashed var(--violet);
+  background: repeating-linear-gradient(135deg, rgba(155, 123, 255, 0.10) 0 10px, rgba(155, 123, 255, 0.04) 10px 20px);
+}
+.shield-card strong { color: var(--violet); }
+.shield-card p { margin: 6px 0 10px; color: var(--muted); }
+
+.roadmap { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.stage { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 9px; display: flex; flex-direction: column; gap: 5px; }
+.stage-head { display: flex; gap: 8px; align-items: center; }
+.stage-num { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: var(--sunset); color: #1a0d25; font-weight: 800; flex: none; }
+.stage-head h3 { font-size: 13.5px; line-height: 1.2; }
+.stage-meta { font-size: 11px; color: var(--muted); }
+.stage-summary { margin: 0; font-size: 11.5px; line-height: 1.3; color: var(--muted); }
+.musts { margin: 0; padding-left: 15px; font-size: 11.5px; line-height: 1.3; color: var(--gold); }
+.stage-trophies { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.stage-item { display: grid; grid-template-columns: 14px 20px minmax(0, 1fr) 14px auto; gap: 5px; align-items: center; font-size: 11.5px; padding: 0 3px; border-radius: 6px; cursor: pointer; line-height: 1.55; }
+.stage-item .badge { width: 18px; height: 18px; font-size: 10px; }
+.stage-item .earned-box { width: 13px; height: 13px; }
+.stage-item.shielded .stage-name { color: var(--violet); font-style: italic; }
+.miss-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--danger); color: #fff; font-size: 10px; font-weight: 800; display: grid; place-items: center; }
+.stage-item:hover { background: var(--panel-2); }
+.stage-item.earned .stage-name { color: var(--ok); text-decoration: line-through; }
+.stage-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chapter { color: var(--muted); font-size: 11px; }
+.stage-src { margin: auto 0 0; font-size: 11px; color: var(--muted); }
+
+.missables { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); gap: 14px; align-items: start; }
+.miss-alert, .timeline { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.miss-alert h2, .timeline h2 { font-size: 16px; margin-bottom: 8px; }
+.miss-card { border: 1px solid var(--danger); border-radius: 8px; padding: 10px; background: rgba(255, 90, 110, 0.08); margin-bottom: 8px; }
+.miss-card p { margin: 4px 0; font-size: 13px; }
+.miss-title { display: flex; gap: 8px; align-items: center; }
+.miss-foot { color: var(--muted); font-size: 12px; margin: 0; }
+.gates { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.gates h3 { font-size: 13px; margin-bottom: 6px; color: var(--orange); }
+.gate-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+.gate-list li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 12px; }
+.gate { font-size: 11px; padding: 0 8px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.gate.lucia { color: var(--pink); border-color: rgba(255, 79, 163, 0.5); }
+.gate.jason { color: var(--teal); border-color: rgba(51, 224, 208, 0.5); }
+.gate.pair { color: var(--violet); border-color: rgba(155, 123, 255, 0.5); }
+.chapter-block { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); }
+.chapter-label { display: flex; flex-direction: column; font-size: 11px; color: var(--muted); }
+.chapter-label strong { color: var(--orange); font-size: 13px; }
+.chapter-trophies { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 10px; }
+.chapter-trophies li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 6px; align-items: center; font-size: 12px; }
+.chapter-trophies .ct-unlock, .chapter-trophies .tag { display: none; }
+.chapter-trophies li.earned .ct-name { color: var(--ok); }
+.ct-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
